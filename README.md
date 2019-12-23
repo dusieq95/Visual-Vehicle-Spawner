@@ -1,5 +1,7 @@
 # Visual-Vehicle-Spawner 1.0 for alt:V
 Visual Vehicle Spawner 1.0 for alt:V 
+###Authors: _dusieq#0404 (Discord) and Enerv#6489 (Discord) <3
+
 
 ## How to install?
 
@@ -13,3 +15,4 @@ Visual Vehicle Spawner 1.0 for alt:V
 ### Version 1.0 
 
 * Initial Release
+* Ability to Spawn cars
