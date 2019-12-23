@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Raleway&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
+</head>
+<body>
+    <div id="app" v-if="visible">
+        <div class="title">
+            <a v-on:click="close()">X</a>
+            <span>Visual Vehicle Spawner v1.0</span>
+        </div>
+        <div class="categories">
+            <template v-for="(category, index) in categories">
+                <div class="category" v-scroll-to="{ el: '#scroll-'+index, container: '.vehicles' }">
+                    <img :src="'assets/categories/'+index+'.png'"/>
+                    {{ category }}
+                </div>
+            </template>
+        </div>
+        <div class="vehicles">
+            <div class="container">
+                <div class="search">
+                    <input type="text" v-model="keyword" placeholder="Search..." spellcheck="false">
+                </div>
+                <template v-if="keyword.length > 0">
+                    <div id="scroll-0">
+                        <hr data-content="Results"></hr>
+                        <template v-for="vehicle in storage">
+                            <a class="vehicle" v-on:click="select(vehicle.model)">
+                                <img alt="" :src="'assets/models/'+vehicle.model+'.jpg'">
+                                {{ vehicle.model }}
+                            </a>
+                        </template>
+                    </div>
+                </template>
+                <template v-else>
+                    <template v-for="(category, index) in categories">
+                        <div v-bind:id="'scroll-'+index">
+                            <template v-if="index > 0">
+                                    <hr v-bind:data-content="category"></hr>
+                                    <template v-for="vehicle in models">
+                                        <template v-if="vehicle.category === index">
+                                            <a class="vehicle" v-on:click="select(vehicle.model)">
+                                                <img alt="" :src="'assets/models/'+vehicle.model+'.jpg'">
+                                                {{ vehicle.model }}
+                                            </a>
+                                        </template>
+                                    </template>
+                            </template>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/app.js"></script>
+    <script>
+        /* Visual Vehicle Spawner (1.0)
+        * _dusieq#0404 (Discord), Enerv#6489 (Discord)
+        * GPLv2 / MIT License
+        */
+
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                alt.emit('ready');
+            }, 1000);
+        });
+
+        if ('alt' in window) {
+            alt.on('menu', (enabled) => {
+                app.keyword = '';
+                app.visible = enabled;
+            });
+        }
+    </script>
+</body>
+</html>

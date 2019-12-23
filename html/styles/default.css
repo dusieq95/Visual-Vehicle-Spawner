@@ -1,0 +1,202 @@
+/* Visual Vehicle Spawner (1.0)
+ * _dusieq#0404 (Discord), Enerv#6489 (Discord)
+ * GPLv2 / MIT License
+ */
+
+body {
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #4E753E;
+}
+
+#app {
+    color: #FFF;
+    background: #282A2C;
+    font-family: 'Raleway', sans-serif;
+    width: 1200px;
+    height: 700px;
+    margin: 15vh auto;
+    opacity: .95;
+}
+
+.title {
+    width: 100%;
+    height: 40px;
+    background: #4E753E;
+}
+
+.title span {
+    display: block;
+    padding-top: 4px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.title a {
+    text-align: center;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+.title a:hover {
+    background: #F00;
+}
+
+
+.categories {
+    float: left;
+    width: 200px;
+    height: 94%;
+    background: #44474A;
+    overflow-y: scroll;
+}
+
+.category {
+    display: inline-grid;
+    width: 128px;
+    height: 128px;
+    background: #595D61;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 40px;
+    transition: all 0.15s ease;
+}
+
+.category:last-child {
+    margin-bottom: 25px;
+}
+
+.category:hover {
+    background: #4E753E;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.category img {
+    width: 64px;
+    height: 64px;
+    margin: 20% 0 0 25%;
+}
+
+.vehicles {
+    margin-left: 200px;
+    padding: 15px;
+    height: 88%;
+    overflow-y: scroll;
+}
+
+.vehicles .container {
+    background: #44474A;
+}
+
+.vehicles hr {
+    border: 0;
+    margin: 0;
+    position: initial;
+    line-height: 40px;
+    height: 40px;
+    background: #595D61;
+}
+
+.vehicle {
+    display: inline-grid;
+    height: 120px;
+    background: #595D61;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 14px;
+    transition: .15s all ease-in-out;
+}
+
+.vehicle:hover {
+    color: transparent;
+    background: #4E753E;
+    transform: scale(1.1);
+}
+
+.vehicle:hover::after {
+    color: #FFF;
+    margin-top: -20px;
+    content: 'Spawn';
+}
+
+.vehicle:active {
+    transform: scale(1.0);
+}
+
+.vehicle img {
+    width: 164px;
+    height: 91px;
+}
+
+.vehicles hr::after {
+    content: attr(data-content);
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.search {
+    padding: 15px;
+}
+
+.search input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    width: 96.5%;
+    padding: 15px;
+    border: 0;
+    color: #FFF;
+    background: #595D61;
+    border-radius: 10px;
+    opacity: .5;
+    outline: none;
+}
+
+.search input:focus {
+    opacity: 1;
+    transition: .15s all ease-in-out;
+    cursor: text;
+}
+
+.search input::placeholder {
+    color: #FFF;
+    cursor: text;
+}
+
+.search input:hover {
+    cursor: text;
+}
+
+
+@media (max-width: 1440px) {
+    #app {
+        margin: 5vh auto;
+        transform: scale(.75); 
+    }
+}
+
+@media (max-width: 1024px) {
+    #app {
+        transform: scale(.6);
+        margin: 0 0 0 -10%;
+    }
+}
